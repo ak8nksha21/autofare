@@ -21,3 +21,14 @@ print(df["fare_rs"].sort_values().tail(10))
 
 print("7. Spelling")
 print(df["booking"].value_counts())
+
+print("3b. Sentinel count")
+print((df["wait_min"] == 9999).sum())
+
+print("5. Stuck sensor: longest run of identical values")
+d = df.copy()
+d["date"] = pd.to_datetime(d["date"])
+d = d.sort_values(["date", "record_id"])
+for c in ["distance_km", "wait_min", "passengers", "hour", "luggage_bags", "fuel_price_rs"]:
+    run = (d[c] != d[c].shift()).cumsum()
+    print(c, run.value_counts().max())

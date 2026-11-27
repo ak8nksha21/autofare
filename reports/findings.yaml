@@ -1,0 +1,60 @@
+# MP103 findings --- fill in every value, keep every key.
+# The marking tool reads this file. Write null only where the comment says so.
+# Use the exact column names and group values from your data files.
+
+group_id: "G158"
+problem_id: "MP103"
+
+data_issues:
+  leaking_column:
+    present: true
+    column: fare_paid_receipt_rs
+  unit_mixup:
+    present: true
+    column: distance_km
+    group_value: Station Area
+    factor: 1000
+  sentinel_value:
+    present: true
+    column: wait_min
+    value: 9999
+    count: 69
+  duplicate_rows:
+    present: false
+    count: null
+  stuck_sensor:
+    present: false
+    column: null
+    start_date: null
+    end_date: null
+  target_typos:
+    present: false
+    count: null
+  spelling_variants:
+    present: true
+    column: booking
+    true_levels: 3
+
+tracking:
+  experiment_name: autofare-fare
+  best_run_id: a6dbe0fb777e4be9b399cd461d5a0611
+  registered_model_name: autofare-fare-model
+  champion_version: 1
+
+monitoring:
+  psi:
+    distance_km: null
+    wait_min: null
+    passengers: null
+    hour: null
+    luggage_bags: null
+    fuel_price_rs: null
+  most_drifted_feature: null
+  mae_by_group:
+    'Station Area': null
+    'Market': null
+    'Outskirts': null
+  worst_served_group: null
+  mae_v1_on_check: null
+  mae_v2_on_check: null
+  decision: null

@@ -4,3 +4,19 @@ data:
   holdout_path: data/raw/holdout_features.csv
 model:
   random_state: 42
+mlflow:
+  experiment_name: autofare-fare
+  registered_model_name: autofare-fare-model
+experiments:
+  - name: rf_100
+    type: random_forest
+    n_estimators: 100
+    max_depth: null
+  - name: rf_300_depth10
+    type: random_forest
+    n_estimators: 300
+    max_depth: 10
+  - name: gbr
+    type: gradient_boosting
+    n_estimators: 200
+    max_depth: 3

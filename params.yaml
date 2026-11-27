@@ -1,0 +1,6 @@
+data:
+  train_path: data/raw/train.csv
+  later_path: data/raw/later.csv
+  holdout_path: data/raw/holdout_features.csv
+model:
+  random_state: 42

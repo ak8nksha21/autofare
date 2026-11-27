@@ -4,3 +4,4 @@ mlruns/
 mlartifacts/
 data/raw/train.csv
 data/raw/later.csv
+.DS_Store

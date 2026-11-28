@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mp103-api
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: mp103-api
+  template:
+    metadata:
+      labels:
+        app: mp103-api
+    spec:
+      containers:
+        - name: mp103-api
+          image: mp103-api:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 10

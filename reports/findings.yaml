@@ -1,10 +1,5 @@
-# MP103 findings --- fill in every value, keep every key.
-# The marking tool reads this file. Write null only where the comment says so.
-# Use the exact column names and group values from your data files.
-
-group_id: "G158"
-problem_id: "MP103"
-
+group_id: G158
+problem_id: MP103
 data_issues:
   leaking_column:
     present: true
@@ -34,27 +29,25 @@ data_issues:
     present: true
     column: booking
     true_levels: 3
-
 tracking:
   experiment_name: autofare-fare
   best_run_id: a6dbe0fb777e4be9b399cd461d5a0611
   registered_model_name: autofare-fare-model
-  champion_version: 1
-
+  champion_version: 2
 monitoring:
   psi:
-    distance_km: null
-    wait_min: null
-    passengers: null
-    hour: null
-    luggage_bags: null
-    fuel_price_rs: null
-  most_drifted_feature: null
+    distance_km: 0.0254
+    wait_min: 0.1219
+    passengers: 0.0077
+    hour: 0.0093
+    luggage_bags: 0.0216
+    fuel_price_rs: 3.3927
+  most_drifted_feature: fuel_price_rs
   mae_by_group:
-    'Station Area': null
-    'Market': null
-    'Outskirts': null
-  worst_served_group: null
-  mae_v1_on_check: null
-  mae_v2_on_check: null
-  decision: null
+    Market: 26.716
+    Outskirts: 117.56
+    Station Area: 37.328
+  worst_served_group: Outskirts
+  mae_v1_on_check: 74.797
+  mae_v2_on_check: 26.815
+  decision: promote
